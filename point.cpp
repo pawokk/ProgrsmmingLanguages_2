@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include "Point.h"
+#include "Helplib.h"
+#include <sstream>
 
 miit::square::Point::Point(const double x, const double y)
     :x(x), y(y)
@@ -14,26 +16,22 @@ const double miit::square::Point::get_x() const
 
 const double miit::square::Point::get_y() const
 {
-    return this->y;
-}
-
-bool miit::square::Point::operator==(const Point& point) const
-{
-    return (point.x == this->x and point.y == this->y);
-}
-
-bool miit::square::Point::operator!=(const Point& point) const
-{
-    return not (point.x == this->x and point.y == this->y);
-}
-
-
-std::string miit::square::ToString(Point& point)
-{
-    return "X: " + std::to_string(point.get_x()) + " Y: " + std::to_string(point.get_y());
+    return this ->y;
 }
 
 std::ostream& miit::square::operator<<(std::ostream& os, Point& point)
 {
-    return os << miit::square::ToString(point);
+    std::stringstream result;
+    result << "X: " << point.x << " Y: " << point.y;
+    return os << result.str();
+}
+
+bool miit::square::operator==(const Point& lhs, const Point& rhs)
+{
+    return (miit::helplib::is_double_equal(lhs.x, rhs.x) && miit::helplib::is_double_equal(lhs.y, rhs.y));
+}
+
+bool miit::square::operator!=(const Point& lhs, const Point& rhs)
+{
+    return !(miit::helplib::is_double_equal(lhs.x, rhs.x) && miit::helplib::is_double_equal(lhs.y, rhs.y));
 }
