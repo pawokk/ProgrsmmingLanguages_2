@@ -4,34 +4,34 @@
 #include "Helplib.h"
 #include <sstream>
 
-miit::square::Point::Point(const double x, const double y)
+miit::polygon::Point::Point(const double x, const double y)
     :x(x), y(y)
 {
 }
 
-const double miit::square::Point::get_x() const
+const double miit::polygon::Point::get_x() const
 {
     return this->x;
 }
 
-const double miit::square::Point::get_y() const
+const double miit::polygon::Point::get_y() const
 {
     return this ->y;
 }
 
-std::ostream& miit::square::operator<<(std::ostream& os, Point& point)
+std::ostream& miit::polygon::operator<<(std::ostream& os, Point& point)
 {
     std::stringstream result;
     result << "X: " << point.x << " Y: " << point.y;
     return os << result.str();
 }
 
-bool miit::square::operator==(const Point& lhs, const Point& rhs)
+bool miit::polygon::operator==(const Point& lha, const Point& rha)
 {
-    return (miit::helplib::is_double_equal(lhs.x, rhs.x) && miit::helplib::is_double_equal(lhs.y, rhs.y));
+    return (miit::helplib::is_double_equal(lha.x, rha.x) && miit::helplib::is_double_equal(lha.y, rha.y));
 }
 
-bool miit::square::operator!=(const Point& lhs, const Point& rhs)
+bool miit::polygon::operator!=(const Point& lha, const Point& rha)
 {
-    return !(miit::helplib::is_double_equal(lhs.x, rhs.x) && miit::helplib::is_double_equal(lhs.y, rhs.y));
+    return !(lha == rha);
 }
