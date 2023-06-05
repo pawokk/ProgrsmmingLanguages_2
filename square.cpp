@@ -1,5 +1,6 @@
 #include <cmath>
 #include "Square.h"
+#include "helplib.h"
 
 
 
@@ -12,7 +13,7 @@ miit::polygon::Square::Square(const Point point_1, const Point point_2)
     double p2_y = point_2.get_y();
     double dif_x = p2_x - p1_x;
     double dif_y = p2_y - p1_y;
-    if (abs(dif_x - dif_y) > 0.00000001)
+    if (!miit::helplib::is_double_equal(dif_x, dif_y))
     {
         throw std::out_of_range("Not Square");
     }
