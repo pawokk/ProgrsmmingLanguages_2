@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "../Polygon/Square.h"
-#include "../Polygon/Helplib.h"
+#include "square.h"
+#include "helplib.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace miit::polygon;
